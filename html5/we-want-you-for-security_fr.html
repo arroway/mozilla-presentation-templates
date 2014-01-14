@@ -1,0 +1,544 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>We Want You For Security!</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>We Want You For Security!</h1>
+    <p class="footer">
+      Stéphanie Ouillon, 
+      <a href="http://twitter.com/">@steph_ouillon</a> or 
+      <a href="mailto:you@email.com">arroway@mozilla.com</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      La sécurité, ce truc de développeur/se...
+    </p>
+  </aside>
+
+<!-- 
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID 
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+      <h2><center><strong>We Want You For Security!</strong></center></h2>
+      </header>
+      <img src="pictures/we-want-you/We_want_you_norris.jpg" 
+           class="middle shadow" height="400"
+           alt="I want you for security!">
+      <small class="byline">
+        Stéphanie Ouillon, Mozilla Paris, 9 décembre 2013
+      </small>
+      <small class="credits">
+        <a href="http://www.pinkispunk.org/blog/wp-content/uploads/2012/03/I_want_you_Norris.jpg">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+<div id="words" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/we-want-you/buzzwords.jpg" 
+           class="middle" 
+           alt="buzzwords">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  
+  <div id="reasons" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+      <blockquote>
+        <p>Je ne m'y connais pas en sécurité.</p>
+        <p class="byline"></p>
+      </blockquote>
+      <blockquote>
+       <p>Je n'ai pas le temps pour la sécurité.</p>
+      </blockquote>
+      <blockquote>
+       <p>La sécurité, c'est pas mon boulot.</p>
+      </blockquote>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="aboutme" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>Firefox OS Security team</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/firefoxos.png" 
+           class="middle" 
+           height="400" 
+           alt="Firefox OS phones">
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="secreview" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Revues de securite</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="gate" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>Code vulnerable</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/you-shall-not-pass.jpg" 
+           class="middle" 
+           height="420" 
+           alt="You shall not pas">
+
+      <small class="credits">
+        <a href="http://data1.whicdn.com/images/9380358/you-shall-not-pass-79979-530-805_large.jpg">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="kitten" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>C'est trop tard: on a tue des chatons</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/kitten.jpeg" 
+           class="middle" 
+           height="350" 
+           alt="You shall not pas">
+
+      <small class="credits">
+        <a href="http://m5.paperblog.com/i/29/299296/cat-parasite-poses-serious-risk-to-humans-say-L-aKL5GJ.jpeg">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="quote" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>C'est quoi la securite ?</strong></h2>
+      </header>
+      <br>
+      <blockquote>
+        <p>Chuck Norris n'a pas besoin de sécurité, c'est la sécurité qui a besoin de Chuck Norris.</p>
+        <p class="byline">Chuck Norris</p>
+      </blockquote>
+      <footer class="notes">
+      </footer> 
+    </section>
+  </div></div>
+
+  <div id="whatsecure" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>"Securise"</strong></h2>
+      </header>
+      <br>
+      <p><i>Un programme est sécurisé s'il se comporte exactement comme Chuck Norris lui a ordonné de faire.</i></p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="provescure" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Du code securise a 100% n'existe pas</strong></h2> 
+      </header>
+      <br>  
+      <p><i>Il n'y a que Chuck Norris qui puisse prouver qu'un système réel est sécurisé.</i>
+    </p>
+      <ul>
+        <li>Difficile de <strong>définir le comportement voulu</strong> pour un système complexe.</li>
+        <li>Impossible à <strong>formaliser</strong></li>
+        <li>Très dur de <strong>vérifier/analyser le comportement du logiciel</strong>.</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+</div></div>  
+
+
+<div id="risk" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Gestion de risque</strong></h2> 
+      </header>
+      <br>
+      <p><i>Chuck Norris ne connait pas le risque.</i>
+    </p>
+     <ul>
+       <li>Risque = <strong>Probabilité d'un Evenement</strong> x <strong>Perte Maximale</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+<div id="moresecure" class="slide"><div>
+    <section>
+    <header>
+    <h2><strong>Plus securise veut dire:</strong></h2>
+      </header>
+      <br>
+      <p><ul>
+        <li>Moins de bugs</li>
+        <li>Logiciel plus fiable</li>
+        </ul>
+        </p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="challengeaccepted" class="slide"><div>
+    <section>
+    <header>
+    <h2><center><strong>Security is your job too</strong></center></h2>
+      </header> 
+      <img src="pictures/we-want-you/chuck-norris.jpg" 
+           class="middle" 
+           height="400" 
+           alt="Challenge accepted">
+      <small class="credits">
+        <a href="http://german.fansshare.com/gallery/photos/11138328/chuck-norris/?loadimage">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="rule1" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>1. Meilleures pratiques<br>   de code</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+  <div id="user_input" class="slide"><div>
+    <section>
+    <header>
+    <h2><strong>Programmation defensive</strong></h2>
+      </header>
+      <p><i>Seul Chuck Norris peut faire confiance aux entrées utilisateurs.</i></h2> 
+     <ul>
+       <li>Utilisateur = attaquant potentiel</li>
+       <li><strong>Gérer tous les cas d'erreur possible</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+<div id="xkcd" class="slide"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/we-want-you/exploits_of_a_mom.png" 
+           class="middle" 
+           alt="buzzwords"
+           height=300>
+      <small class="credits">
+        <a href="http://imgs.xkcd.com/comics/exploits_of_a_mom.png">
+          xkcd/exploits_of_a_mom
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  
+  <div id="escaping_example" class="slide"><div>
+    <section>
+    <header>
+    <h2>Injection de code</h2>
+      </header>
+      <pre>
+      <code>query = "SELECT * FROM students WHERE </code>
+      <code>           name ='" + userName + "' AND age = 10;"</code>
+      <code>userName = "Robert'; DROP TABLE students;--" </code>
+      </pre>
+      <pre>
+      <strong>
+      <code>"SELECT * FROM students WHERE </code>
+      <code>   name ='Robert'; DROP TABLE students;"</code></strong>
+      </pre>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+
+
+  <div id="user_input_example" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mise en forme canonique</h2>
+      </header>
+      <pre>
+      <code>if filename != "/etc/password"</code>
+      <code>  print filename content</code>
+      </pre>
+      <p>Et si filename = "<strong>/etc/./password</strong>"?</p>
+      <p>Traversée de répertoire, encodages multiples</p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+  <div id="escape" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Echappement</strong></h2> 
+    </header>
+    <p><i>Chuck Norris n'échappent pas les mauvaises chaînes de caractères. Ce sont les chaînes de caractères qui essaient d'échapper à Chuck Norris.</i></p>
+    </p>
+     <ul>
+       <li>Echapper les entrées et les sorties: <strong>encodage</strong> (ex: injection SQL)</li>
+       <li>Assainissement des entrées (filtrage de caractères)</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+
+<div id="dos" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Connaitre ses ressources</strong></h2> 
+      </header>
+      <br>
+      <p><i>Chuck Norris peut DoS un DDoS.</i></p>
+     <ul>
+       <li>Filtrer les données en entrées/sortie de grande taille</li>
+       <li>Stopper les processus trop consommateurs en temps/ressources</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="rule2" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>2. Bonnes pratiques<br>   de test</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+<div id="tests" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Be evil</strong></h2> 
+    </header>
+    <p><i>Si le code de Chuck Norris compile, alors il marche.</i>
+    </p>
+     <ul>
+       <li>Penser comme un attaquant</li>
+       <li>Tester de données malveillantes en entrée et les <strong>comportements inattendus</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="rule3" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>3. Connaître les menaces courantes</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+<div id="password" class="slide"><div>
+    <section>
+    <header>
+    <h2><strong>Proteger les donnees utilisateurs</strong></h2>
+    </header>
+    <p><i>Personne n'a encore jamais cassé le mot de passe de Chuck Norris.</i></p> 
+     <ul>
+       <li><strong>Chiffrer</strong> les données utilisateurs sensibles.</li>
+       <li><strong>Changer le mot de passe par défaut</strong> des serveurs d'applications, des comptes admin</li>
+       <li>Ne PAS stocker des données sensibles en clair (ex: mots de passe)</li>
+       <li>Réduire les risques de <strong>bruteforcing</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+
+<div id="xss" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Vulnerabilites web</strong></h2> 
+    </header>
+    <p><i>Les sites *.tx.us sites sont sûrs parce qu'aucun XSS ne traversera les frontières du Texas.</i>
+    </p>
+     <ul>
+       <li>XSS, CSRF, authentification, gestion de session...</li>
+       <li><a href="https://developer.mozilla.org/en-US/docs/Security">MDN: Securité web</a></li>
+       <li>OWASP Top Ten: <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">owasp.org</a></il>
+       <li><a href="https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines">Secure Coding Guidelines for Web Apps</a></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+
+<div id="mitm" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Communications securisees</strong></h2> 
+      </header>
+      <p><i>Chuck Norris kills every man in the middle of his way.</i></p>
+     <ul>
+       <li><strong>Chiffrer les communications</strong> pour garantir <strong>l'intégrité des données</strong> (TLS/SSL)</li>
+       <li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Configurer TLS sur son serveur</a></li> 
+     </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+  <div id="conclusion" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>EN RESUME</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+<div id="betterpractices" class="slide"><div>
+    <section>
+      <header>
+    </header>
+    <ul>
+      <li><strong>Contrôler systématiquement les données en entrée/sortie</strong></li>
+      <li><strong>Penser comme un-e attaquant-e</strong></li>
+      <li>Connaître le language (<strong>gestion de la mémoire</strong>, <strong>vulnerabilitées</strong>, performances)</li>
+      <li>Faire attention aux <strong>communications</strong>, <strong>stockage</strong>, <strong>droits d'accès</strong></li>
+    </ul>  
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+<div id="references" class="slide"><div>
+    <section>
+      <header>
+    </header>
+    <ul>
+     <li><strong>Open Web Application Security Project</strong>: <a href="https://www.owasp.org">owasp.org</a></il>
+     <li>Mozilla wiki: <a href="https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines">Secure Coding Guidelines for Web Apps</a></li>
+     <li><strong>Effective Java</strong>, by Joshua Block</li>
+     <li><strong>Hacking, the Art of Exploitation</strong>, by Jon Erickson</li>
+     <li><strong>The Tangled Web: A Guide to Securing Modern Web Applications</strong>, by Michal Zalewski</li>
+    </ul>  
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+  <div id="wewant" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Chuck Norris wants you for security!</strong></h2>
+      </header>
+      <img src="pictures/we-want-you/We_want_you_norris.jpg" class="right" alt="" height="250">
+      <ul class="nobull">
+        <li>Merci !</li>
+        <br>
+        <li>irc: arroway</li>
+        <li><a href="http://twitter.com/">@steph_ouillon</a></li>
+	<li>Slides: <a href="steph.ouillon.fr/static/talks/fr">steph.ouillon.fr/static/talks/fr</li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
