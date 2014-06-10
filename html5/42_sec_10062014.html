@@ -1,0 +1,680 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1></h1>
+    <p class="footer">
+      Stéphanie Ouillon, 
+      <a href="http://twitter.com/steph_ouillon">@steph_ouillon</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+       Add your talk abstract here
+    </p>
+  </aside>
+
+<!-- 
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID 
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+      <h2><center><strong>Apprenez a valider vos donnees</strong></center></h2>
+      </header>
+      <small class="byline">
+        Stéphanie Ouillon, JDuchess Paris, 5 février 2014</small>
+      <small class="credits">
+        <a href="http://paranormal.blogspirit.com/media/00/00/3701764528.jpg">credits</a></small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fullcover" class="slide"><div>
+    <section>
+      <header>
+      <h2><center><strong>Apprenez a valider vos donnees</strong></center></h2>
+      </header>
+      <img src="pictures/jduchess_sec/paranormal_cropped.jpg" 
+           class="middle shadow" height="350"
+           alt="Cover">
+      <small class="byline">
+        Stéphanie Ouillon, JDuchess Paris, 5 février 2014</small>
+      <small class="credits">
+        <a href="http://paranormal.blogspirit.com/media/00/00/3701764528.jpg">credits</a></small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <div id="msg" class="slide"><div>
+    <section>
+      <header>
+      </header>
+      <p><strong>On ne doit jamais faire confiance aux données provenant d'un client : tout peut arriver.</strong>
+      </p>
+        
+      <p><strong>Surtout ce que l'on n'a pas prévu.</strong></p>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+ <div id="fire" class="slide"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/jduchess_sec/explosion.jpg" 
+           class="middle shadow" height="500"
+           alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="aboutme" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>Firefox OS Security team</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/firefoxos.png" 
+           class="middle" 
+           height="400" 
+           alt="Firefox OS phones">
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="secreview" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Revues de securite</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="gate" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>Code vulnerable</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/you-shall-not-pass.jpg" 
+           class="middle" 
+           height="420" 
+           alt="You shall not pas">
+
+      <small class="credits">
+        <a href="http://data1.whicdn.com/images/9380358/you-shall-not-pass-79979-530-805_large.jpg">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="kitten" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>C'est trop tard: on a tue des chatons</center></h2>
+      </header> 
+      <img src="pictures/we-want-you/kitten.jpeg" 
+           class="middle" 
+           height="350" 
+           alt="You shall not pas">
+      <small class="credits">
+        <a href="http://m5.paperblog.com/i/29/299296/cat-parasite-poses-serious-risk-to-humans-say-L-aKL5GJ.jpeg">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="cve" class="slide shout"><div>
+    <section>
+      <header>
+      <h2><a href="http://www.cvedetails.com/vulnerabilities-by-types.php">CVE</a></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="facepalm" class="slide"><div>
+    <section>
+      <header>
+        <h2></h2>
+      </header>
+      <a href="http://www.troyhunt.com/2012/07/heres-why-we-keep-getting-hacked-clear.html"><img src="pictures/jduchess_sec/facepalm.gif" 
+           class="middle shadow"
+           alt="Facepalm"
+           height=300></a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="hint" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><a href="http://plaintextoffenders.com/">Mot de passe oublie ?</a></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  <div id="reasons" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+      <blockquote>
+        <p>Je ne m'y connais pas en sécurité.</p>
+        <p class="byline"></p>
+      </blockquote>
+      <blockquote>
+       <p>Je n'ai pas le temps pour la sécurité.</p>
+      </blockquote>
+      <blockquote>
+       <p>La sécurité, c'est pas mon boulot.</p>
+      </blockquote>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+  <div id="whatsecure" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>"Securise"</strong></h2>
+      </header>
+      <br>
+      <p><i>Un programme est sécurisé s'il se comporte exactement comme il a été conçu pour le faire.</i></p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="provescure" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Du code securise a 100% n'existe pas</strong></h2> 
+      </header>
+    </p>
+      <ul>
+        <li>Difficile de <strong>définir le comportement voulu</strong> pour un système complexe.</li>
+        <li>Impossible à <strong>formaliser</strong></li>
+        <li>Très dur de <strong>vérifier/analyser le comportement du logiciel</strong>.</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+</div></div>  
+
+
+<div id="risk" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Gestion de risque</strong></h2> 
+      </header>
+    </p>
+     <ul>
+       <li>Risque = <strong>Probabilité d'un Evenement</strong> x <strong>Perte Maximale</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="challengeaccepted" class="slide"><div>
+    <section>
+    <header>
+    <h2><center><strong>Security is your job too</strong></center></h2>
+      </header> 
+      <img src="pictures/we-want-you/chuck-norris.jpg" 
+           class="middle" 
+           height="400" 
+           alt="Challenge accepted">
+      <small class="credits">
+        <a href="http://german.fansshare.com/gallery/photos/11138328/chuck-norris/?loadimage">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+  
+  <div id="rule1" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>1. Bonnes pratiques<br>   de code</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+ 
+
+  <div id="validation" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><strong>Data validation</strong></h2>
+        </header>
+      <small class="credits">
+        <a href="https://www.owasp.org/index.php/Data_Validation">
+          owasp.org
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="pratiques" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><strong>"<i>Bonnes pratiques</i>"</strong></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="xss" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><strong>XSS:</strong> l'overflow du web</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="stored-xss" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2>Stored XSS</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="reflective-xss" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2>Reflective XSS</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="dom-based-xss" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2>DOM based XSS</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="injection" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><a href="https://bug810652.bugzilla.mozilla.org/attachment.cgi?id=680996">SCRIPT INJECTION</a></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="injection-url" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Filtrer le contenu utilisateur</strong></h2>
+        <h2>URL</h2>
+      </header>
+      <ul>
+        <li>Whitelist les <strong>schemes</strong> (http, https, ftp)</li>
+        <li><strong>Hostname</strong>: caractères alphanumérique, ".", "-"</li>     
+        <li>Peut être suivi de "/", "?", "#", end-of-string</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="injection-html" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Filtrer le contenu utilisateur</strong></h2>
+        <h2>HTML</h2>
+      </header>
+      <ul>
+        <li>Toujours spécifier <strong><i>Content-Type</i></strong> et <strong><i>charset</i></strong></li>     
+        <li>body: <strong>entity-encode &lt; &gt; &amp;</strong></li>    
+        <li>Paramètres des tags <strong>"style"</strong> et <strong>"on*"</strong>: à éviter (multiples niveaux d'échappement)</li>     
+        <li>Autres valeurs de params HTML: <strong>entourer avec &rdquo; et entity-encode &lt; &gt; &amp; &rdquo; &rsquo;</strong></li>     
+        <li><strong>!</strong> metacaractères Unicode</li>     
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="injection-css" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Filtrer le contenu utilisateur</strong></h2>
+        <h2>CSS</h2>
+      </header>
+      <ul>
+        <li>Feuilles de style: <strong>en local / servies par HTTPS</strong></li>
+        <li>Si paramètres insérés dans du CSS: entourer avec &rdquo;. Echapper les caractères 
+        (0x00-0x1F), \, &lt; &gt; {, }, &rdquo; &rsquo;</li>
+        <li>text body: entity-encode &lt; &gt; &amp;</li>    
+        <li>Paramètres des tags <strong><i>"style"</i></strong>: à éviter (multiples niveaux d'échappement)</li>     
+        <li>CSS fourni par l'utilisateur: vérifications spécifiques</li> 
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="injection-js" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Filtrer le contenu utilisateur</strong></h2>
+        <h2>JavaScript</h2>
+      </header>
+      <ul>
+        <li>Fichiers de script: <strong>en local / servis par HTTPS</strong></li>
+        <li><strong>Bannir <i>eval()</i>, <i>innerHTML()</i>, <i>outerHTML()</i>, <i>setTimeout()</i></strong> avec des params utilisateurs.</li> 
+        <li>Pour parser du JSON: utiliser <i>JSON.parse()</i> plutôt que <i>eval()</i>.</li>
+        <li>Si paramètres insérés dans un block JS: échapper les caractères 
+        (0x00-0x1F), \, &lt; &gt; {, }, &rdquo; &rsquo;</li>
+        <li><strong>Pour construire dynamiquement du HTML</strong>: utiliser <i>innerText()</i>, <i>createElement()</i>, <i>createTextNode()</i>.</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="pwnd" class="slide"><div>
+    <section>
+      <header>
+        <h2></h2>
+      </header>
+      <img src="pictures/jduchess_sec/exploits_of_a_mom.png" 
+      class="middle shadow"
+      height="300"
+           alt="XKCD">
+      <small class="credits">
+        <a href="http://xkcd.com/327">http://xkcd.com/327</a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+  
+  <div id="escaping_example" class="slide"><div>
+    <section>
+    <header>
+    <h2>Injection de code</h2>
+      </header>
+      <pre>
+      <code>query = "SELECT * FROM students WHERE </code>
+      <code>           name ='" + userName + "' AND age = 10;"</code>
+      <code>userName = "Robert'; DROP TABLE students;--" </code>
+      </pre>
+      <pre>
+      <strong>
+      <code>"SELECT * FROM students WHERE </code>
+      <code>   name ='Robert'; DROP TABLE students;"</code></strong>
+      </pre>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+
+  <div id="whitelist" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=463164"><strong>Whitelist / Blacklist</strong></a></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="dos" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><strong><a href="https://www.owasp.org/index.php/Denial_of_Service">Denial Of Service</a></strong></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  
+  <div id="dos-1" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Connaitre ses ressources</strong></h2> 
+      </header>
+     <ul>
+       <li>Filtrer les données en entrées/sortie de grande taille</li>
+       <li>Stopper les processus trop consommateurs en temps/ressources</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="rule2" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>2. Bonnes pratiques<br>   de test</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="testofc" class="slide"><div>
+    <section>
+      <header>
+      </header>
+      <h3><center>quand on me demande si j'ai lancé les tests</center></h3>
+      <a href="http://lesjoiesducode.fr/post/32454557097/quand-on-me-demande-si-jai-lance-les-tests"><img src="pictures/jduchess_sec/tests.gif" 
+           class="middle shadow"
+           alt="testsofc"
+           height=300></a>
+      </small>
+      <small class="credits">
+        <a href="http://lesjoiesducode.fr/post/32454557097/quand-on-me-demande-si-jai-lance-les-tests">Les joies du code</a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<div id="tests" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Be evil</strong></h2> 
+    </header>
+    </p>
+     <ul>
+       <li>Penser comme un attaquant</li>
+       <li>Tester des données malveillantes en entrée et les <strong>comportements inattendus</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="test-1" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+      <h2>Pensez <i>différemment</i></h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="rule3" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+        <h2>3. Connaître les menaces courantes</h2>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+<div id="password" class="slide"><div>
+    <section>
+    <header>
+    <h2><strong>Proteger les donnees utilisateurs</strong></h2>
+    </header>
+     <ul>
+       <li><strong>Chiffrer</strong> les données utilisateurs sensibles.</li>
+       <li><strong>Changer le mot de passe par défaut</strong> des serveurs d'applications, des comptes admin</li>
+       <li>Ne PAS stocker des données sensibles en clair (ex: mots de passe)</li>
+       <li>Réduire les risques de <strong>bruteforcing</strong></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+
+<div id="vulns" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Vulnerabilites web</strong></h2> 
+    </header>
+    </p>
+     <ul>
+       <li>XSS, CSRF, authentification, gestion de session...</li>
+       <li><a href="https://developer.mozilla.org/en-US/docs/Security">MDN: Securité web</a></li>
+       <li>OWASP Top Ten: <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">owasp.org</a></il>
+       <li><a href="https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines">Secure Coding Guidelines for Web Apps</a></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+
+<div id="mitm" class="slide"><div>
+    <section>
+      <header>
+      <h2><strong>Communications securisees</strong></h2> 
+      </header>
+     <ul>
+       <li><strong>Chiffrer les communications</strong> pour garantir <strong>l'intégrité des données</strong> (TLS/SSL)</li>
+       <li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Configurer TLS sur son serveur</a></li> 
+     </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+
+<div id="ux" class="slide oneline"><div>
+    <section>
+      <header>
+      <h2><strong><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=581313">UX</a></strong></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+</div></div> 
+
+ <div id="fire2" class="slide"><div>
+    <section>
+    <header>
+      <h2>Remember</h2> 
+      </header>
+      <img src="pictures/jduchess_sec/explosion.jpg" 
+           class="middle shadow" height="400"
+           alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Merci</h2>
+      </header>
+      <img src="pictures/mozillaoverview/redpanda.jpg" class="right" alt="Red panda (Firefox)">
+      <ul class="nobull">
+        <li>Stéphanie Ouillon</li>
+        <li>IRC: arroway</li>
+        <li><a href="http://twitter.com/steph_ouillon">@steph_ouillon</a></li>
+        <li><strong>Slides</strong>: http://github.com/arroway</li>
+      </ul>
+      <small class="credits">
+        <a href="http://www.flickr.com/photos/yortw/5798336827/">Photo by Yortw</a>
+      </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
