@@ -49,7 +49,7 @@
       <h2><center><strong>Apprenez a valider vos donnees</strong></center></h2>
       </header>
       <small class="byline">
-        Stéphanie Ouillon, JDuchess Paris, 5 février 2014</small>
+        Stéphanie Ouillon, 42, 10 juin 2014</small>
       <small class="credits">
         <a href="http://paranormal.blogspirit.com/media/00/00/3701764528.jpg">credits</a></small>
       <footer class="notes">
@@ -66,7 +66,7 @@
            class="middle shadow" height="350"
            alt="Cover">
       <small class="byline">
-        Stéphanie Ouillon, JDuchess Paris, 5 février 2014</small>
+        Stéphanie Ouillon, 42, 10 juin 2014</small>
       <small class="credits">
         <a href="http://paranormal.blogspirit.com/media/00/00/3701764528.jpg">credits</a></small>
       <footer class="notes">
@@ -199,7 +199,7 @@
       </footer>
     </section>
   </div></div>  
-  <div id="reasons" class="slide oneline"><div>
+  <!--<div id="reasons" class="slide oneline"><div>
     <section>
       <header>
       </header>
@@ -216,7 +216,7 @@
       <footer class="notes">
       </footer>
     </section>
-  </div></div>  
+  </div></div>-->
   
   <div id="whatsecure" class="slide"><div>
     <section>
@@ -279,17 +279,6 @@
       </footer>
     </section>
   </div></div>
-  
-  <div id="rule1" class="slide oneline"><div>
-    <section>
-      <header>
-      </header>
-        <h2>1. Bonnes pratiques<br>   de code</h2>
-      <footer class="notes">
-      </footer>
-    </section>
-  </div></div>  
- 
 
   <div id="validation" class="slide oneline"><div>
     <section>
@@ -306,11 +295,11 @@
     </section>
   </div></div>  
 
-  <div id="pratiques" class="slide oneline"><div>
+  <div id="rule1" class="slide oneline"><div>
     <section>
       <header>
-      <h2><strong>"<i>Bonnes pratiques</i>"</strong></h2>
       </header>
+        <h2>1. Bonnes pratiques<br>   de code</h2>
       <footer class="notes">
       </footer>
     </section>
@@ -326,7 +315,7 @@
     </section>
   </div></div>  
 
-  <div id="stored-xss" class="slide oneline"><div>
+  <!--<div id="stored-xss" class="slide oneline"><div>
     <section>
       <header>
       <h2>Stored XSS</h2>
@@ -354,12 +343,12 @@
       <footer class="notes">
       </footer>
     </section>
-  </div></div>  
+  </div></div>-->
 
   <div id="injection" class="slide oneline"><div>
     <section>
       <header>
-      <h2><a href="https://bug810652.bugzilla.mozilla.org/attachment.cgi?id=680996">SCRIPT INJECTION</a></h2>
+      <h2><a href="https://bug810652.bugzilla.mozilla.org/attachment.cgi?id=680996">Script injection</a></h2>
       </header>
       <footer class="notes">
       </footer>
@@ -433,6 +422,34 @@
         (0x00-0x1F), \, &lt; &gt; {, }, &rdquo; &rsquo;</li>
         <li><strong>Pour construire dynamiquement du HTML</strong>: utiliser <i>innerText()</i>, <i>createElement()</i>, <i>createTextNode()</i>.</li>
       </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="csp" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Content Security Policy</strong></h2>
+      </header>
+    <ul>
+      <li>Header HTTP: <i>Content-Security-Policy</i></li>
+      <li>Content-Security-Policy: default-src *; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'
+          </li> 
+    </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="scanjs" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Scan.js</strong></h2>
+      </header>
+    <ul>
+      <li>https://github.com/mozilla/scanjs</li>
+    </ul>
       <footer class="notes">
       </footer>
     </section>
@@ -656,10 +673,10 @@
       </header>
       <img src="pictures/mozillaoverview/redpanda.jpg" class="right" alt="Red panda (Firefox)">
       <ul class="nobull">
-        <li>Stéphanie Ouillon</li>
-        <li>IRC: arroway</li>
-        <li><a href="http://twitter.com/steph_ouillon">@steph_ouillon</a></li>
+        <li><strong>MDN</strong>: https://developer.mozilla.org</li>
+        <li><strong>OWASP</strong>: https://www.owasp.org</li>
         <li><strong>Slides</strong>: http://github.com/arroway</li>
+        <li>IRC: arroway</li>
       </ul>
       <small class="credits">
         <a href="http://www.flickr.com/photos/yortw/5798336827/">Photo by Yortw</a>
