@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<head>
+  <meta charset="UTF-8">
+  <title>Firefox OS et la Content Security Policy</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1></h1>
+    <p class="footer">
+      Stéphanie Ouillon, 
+      <a href="">:arroway</a> or 
+      <a href="http://twitter.com/">@steph_ouillon</a> or 
+      <a href="mailto:arroway@mozilla.com">arroway@mozilla.com</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      Firefox OS et la Content Security Policy
+    </p>
+  </aside>
+
+  <div id="cover" class="slide online"><div>
+    <section>
+      <header>
+        <br><br>
+        <h2><center><strong>Firefox OS et la Content Security Policy</strong><center></h2>
+      </header>
+      <small class="byline">
+        Stéphanie Ouillon, Mozilla Paris, 12 décembre 2014
+        </small>
+      <small class="credits">
+        <a href="">
+          credits
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="csp_violation" class="slide"><div>
+    <section>
+      <header>
+      </header> 
+      <img src="pictures/fxos_meetup_csp/csp_violation.png" 
+           class="middle" 
+           height="350" 
+           alt="CSP violation">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="csp_violation_details" class="slide"><div>
+    <section>
+      <header>
+      </header> 
+      <img src="pictures/fxos_meetup_csp/csp_violation_details.png" 
+           class="middle" 
+           height="180" 
+           alt="CSP violation details">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="csp" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP : Content Security Policy</strong></center></h2>
+      </header>
+      <p><center>"Politique de sécurité des contenus"</center></p>
+      <ul>
+        <li>Couche de sécurité supplémentaire implémentée dans le navigateur</li>
+        <li>Rôle : détecter et mitiger certaines attaques
+        <br>Ex: Cross-Site Scripting (XSS), injection de données</li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-bis" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP : Content Security Policy</strong></center></h2>
+      </header>
+      <ul>
+        <li>Oblige à coder en respectant certaines bonnes pratiques de sécurité...</li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-principe" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP : Principe</strong></center></h2>
+      </header>
+      <ul class="nobull">
+        <li>Restreindre l'origine des contenus d'une page web à des sources autorisées</li>
+        <br><li>Ex : JavaScript (script), feuilles de style (style), images (img), audio et video (media)</li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="sop" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>SOP : Same Origin Policy</strong></center></h2>
+      </header>
+      <p><center>origine = même protocole, même port, même domaine</center></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="sop-2" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>SOP : Same Origin Policy</strong></center></h2>
+      </header>
+      <p><center>http://mon.app.fr/dossier2/index.html</center></p>
+      <p><center>http://mon.app.fr/dossier/index.html</center></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="sop-3" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>SOP : Same Origin Policy</strong></center></h2>
+      </header>
+      <p><center>http://mon.app.fr/dossier2/index.html</center></p>
+      <p><center>http://mon.app.fr/dossier/index.html</center></p>
+      <p><center><strong>MEME ORIGINE</strong></center></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="sop-4" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>SOP : Same Origin Policy</strong></center></h2>
+      </header>
+      <p><center>http://mon.app.fr/dossier2/index.html</center></p>
+      <p><center>https://mon.app.fr</center></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="sop-5" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>SOP : Same Origin Policy</strong></center></h2>
+      </header>
+      <p><center><strong>http://</strong>mon.app.fr/dossier2/index.html</center></p>
+      <p><center><strong>https://</strong>mon.app.fr</center></p>
+      <p><center><strong>ORIGINE DIFFERENTE</strong></center></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-how" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Specifier la CSP</strong></center></h2>
+      </header>
+      <ul class="nobull">
+        <li>Entête HTTP : </li>
+        <code>Content-Security-Policy: policy</code>
+        <li>Exemple :</li> 
+        <li><code>Content-Security-Policy:</li><li>default-src 'self' *.mydomain.com</code></li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-how-2" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Specifier la CSP</strong></center></h2>
+      </header>
+      <ul class="nobull">
+        <li><code>Content-Security-Policy:</li><li>default-src 'self'; img-src *;</li><li>media-src media1.com media2.com; script-src userscripts.example.com</code></li>
+        <br>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives">MDN: CSP Policy Directives</a></li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-fxos" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Dans Firefox OS : </strong></center></h2><br><br>
+      <h2><center><strong>La Content Security Policy s'applique par defaut</strong></center></h2>
+      </header>
+      <ul class="nobull">
+        <li></li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-fxos-2" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP par defaut</strong></center></h2>
+      </header>
+      <p>Applications privilégiées : </p>
+      <ul class="nobull">
+        <li><code>default-src *; </code></li>
+        <li><code>script-src 'self'; </code></li>
+        <li><code>object-src 'none';</code></li>
+        <li><code>style-src 'self' 'unsafe-inline'</code></li>
+      </ul>
+      <p><i>'unsafe-inline' =</i> <code>&ltstyle&gt</code> and <code>&ltstyle=""&gt</code> sont autorisées</p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-fxos-3" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP par defaut</strong></center></h2>
+      </header>
+      <p>Applications certifiées : </p>
+      <ul class="nobull">
+        <li><code>default-src *; </code></li>
+        <li><code>script-src 'self'; </code></li>
+        <li><code>object-src 'none';</code></li>
+        <li><code>style-src 'self'</code></li>
+      </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="csp-restrictions-1" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Restrictions appliquees</strong></center></h2>
+    </header>
+    <ul>
+      <li>Pas de fichiers de script et de style distants</li>
+      <li>Script "inline" interdits</li>
+      <li>Les plugins sont interdits (<code>&ltobject&gt, &ltembed&gt</code>)</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="csp-restrictions-2" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Restrictions appliquees</strong></center></h2>
+    </header>
+    <ul>
+      <li>L'utilisation de <code>eval()</code> ou de l'opérateur eval est interdite.</li>
+      <li>L'exécution de code dynamique avec <code>setTimeout()</code> et <code>setInterval()</code> est interdite
+      <br>(obligation de passer des fonctions en argument)</li>
+      <li>Le constructeur <code>Function()</code> est interdit.</li>
+      <li>Les URIs <code>javascript:</code> sont interdites <br>(type: <code>&lta href="javascript:alert('foo')"&gt</code>)</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+
+  <div id="csp-restrictions-3" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Restrictions appliquees</strong></center></h2>
+    </header>
+    <ul class="nobull">
+      <li>Quelques autres restrictions sont décrites sur la page MDN:
+      <a href="https://developer.mozilla.org/en-US/Apps/Build/installable_apps_for_Firefox_OS/CSP#Default_Policies">CSP#Default Policies</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="csp-modifications" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>Modifier la CSP</strong></center></h2>
+    </header>
+    <ul>
+      <li>Champ <code>csp: </code> dans le manifest de l'application.</li>
+      <li>S'applique à toutes les pages de l'application.</li>
+      <li><strong>On ne peut que restreindre la CSP par défaut.</strong></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="csp-modifications-wrong" class="slide"><div>
+    <section>
+    <header>
+      <h2><center><strong>CSP modifiee</strong></center></h2>
+      </header>
+      <p>Applications privilégiées : </p>
+      <ul class="nobull">
+        <li><code>default-src *; </code></li>
+        <li><code>script-src 'self'; </code></li>
+        <li><strong><code>object-src *.mondomaine.fr;</code></strong></li>
+        <li><code>style-src 'self' 'unsafe-inline'</code></li>
+      </ul>
+      <p><strong>Incorrect !</strong></p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+
+  <div id="contact" class="slide"><div>
+    <section>
+    <header>
+      <h2>Contact</h2>
+      </header>
+    <ul>
+      <li>Slides: <a href="http://arroway.github.io/mozilla-presentation-templates/html5/meetup_fxos_csp.html">http://arroway.github.io/mozilla-presentation-templates/html5/meetup_fxos_csp</a></li>
+      <li>IRC: arroway</li>
+      <li>arroway@mozilla.com</li>
+      <li><a href="https://twitter.com/steph_ouillon">@steph_ouillon</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
