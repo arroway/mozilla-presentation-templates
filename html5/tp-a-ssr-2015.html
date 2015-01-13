@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="fr-FR">
+<head>
+  <meta charset="UTF-8">
+  <title>TP SSR</title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+</head>
+<body>
+  
+  <h2>*** TP : Revue de sécurité d'une application Web Firefox OS ***</h2>
+
+  <p>Les slides du cours sont disponibles <a href="http://arroway.github.io/mozilla-presentation-templates/html5/cours-ssr-2015.html">ici</a></p>
+
+  <h3>1. Installation</h3>
+  <ol>
+    <li>Installer Firefox Nightly pour avoir la dernière version de WebIDE. Aller
+    sur <a href="http://nightly.mozilla.org/">http://nightly.mozilla.org/</a> et télécharger la version pour Linux 64-bits.</li>
+    <li>Dézipper le package, et lancer Firefox avec la commande: <i>$ firefox/firefox-bin</i></li>
+    <li>Au démarrage du navigateur, créer un nouvel profil: par exemple "tp-nightly".</li>
+    <li>Lancer WebIDE en passant par l'onglet Web Developer Tools/</i>
+    <li>Lancer le simulateur 2.2.</li>
+  </ol>
+ 
+  <h3>2. Exploration du système de sécurité de Firefox OS d'un point de vue utilisateur</h3>
+  <ol>
+    <li>Quels sont les vecteurs d'attaque possibles d'un téléphone, de manière générale ?</li>
+    <li>Pour chacun des vecteurs d'attaques possibles, trouver des contre-mesures.</li>
+    <li>Dans Firefox OS, ces vecteurs d'attaques sont-ils possibles, quelles sont les contre-mesures appliquées, ou au contraire manquantes ?</li>
+  </ol>  
+
+  <h3>3. Test d'une application web vulnérable</h3>
+  <ol>
+    <li>Télécharger l'application "dvfa" et dézipper le package : <a href="https://github.com/arroway/dvfa">https://github.com/arroway/dvfa</a>.</li>
+    <li>Tester l'application</li>
+  </ol>
+
+  <h3>3. Audit de sécurité d'une application</h3>
+  <ol>
+    <li>Soumettre l'application au Marketplace Validator: <a href="https://marketplace.firefox.com/developers/validator">https://marketplace.firefox.com/developers/validator</a>. Expliquer les résultats.</li>. Avant cela, se placer dans le 
+    répertoire de l'app et rezipper la package avec la commande: <i>zip -r dvfa.zip *</i>. ATTENTION : ne PAS reprendre l'archive téléchargée depuis GitHub.
+    <li>Comment aborder une revue de code axé sécurité : grandes étapes, points auxquels faire attention ? </li>
+    <li>En s'appuyant sur les <a href="https://developer.mozilla.org/en-US/Apps/Security_guidelines">Firefox OS Developer Security Guidelines</a>, et en prenant example sur le type 
+    de modèle de Security Review de Firefox OS (quelques exemples <a href="https://wiki.mozilla.org/Security/Reviews/Gaia/email">ici</a> et <a href="https://wiki.mozilla.org/Security/Reviews/Gaia/Contacts">là</a>)
+    faire l'audit de sécurité de l'application et en rédiger les notes.</li>
+  <ol>
+</body>
+</html>
