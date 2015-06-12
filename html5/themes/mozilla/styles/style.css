@@ -9,7 +9,7 @@
 @import url(reset.css);
 
 BODY {
-	font:30px/1.8 'OpenSansRegular', sans-serif;
+	font:25px/1.8 'OpenSansRegular', sans-serif;
 	counter-reset:paging;
 	}
 
