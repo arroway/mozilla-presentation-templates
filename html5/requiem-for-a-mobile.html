@@ -1,0 +1,2199 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Requiem for a mobile: lessons learned from building security for Firefox OS</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1></h1>
+    <p class="footer">
+      Stéphanie Ouillon, 
+      irc: arroway</a> 
+      <a href="mailto:you@email.com">stephouillon@mozilla.com</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      Lessons learned from building security for Firefox OS
+    </p>
+  </aside>
+
+  <div id="cover" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/requiem/requiem_crop.jpg" 
+           class="middle"
+           alt="">
+      <small class="byline">
+        ISTIC, 9 mars 2016
+      </small>
+      <small class="credits">
+        <a href="">
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="2years" class="slide oneline"><div>
+    <section>
+      <h2>2 years, 3 months, 2 weeks</h2>
+    </section>
+  </div></div>   
+  
+  <div id="mozilla" class="slide cover w"><div>
+    <section>
+      <img src="pictures/requiem/mozilla.png" 
+           class="middle"
+           alt="">
+    </section>
+  </div></div>
+  
+  <div id="firefox" class="slide cover h"><div>
+    <section>
+      <img src="pictures/requiem/firefox_logo.png" 
+           class="middle"
+           alt="">
+    </section>
+  </div></div>
+  
+  <div id="securityteam" class="slide cover h"><div>
+    <section>
+      <img src="pictures/cours-ssr/firefoxos.png" 
+           class="right" 
+           height="350" 
+           alt="Firefox OS phones">
+    </section>
+  </div></div>
+  
+  <div id="break" class="slide cover h"><div>
+    <section>
+      <header>
+      <h2>Breaking the duopoly</h2>
+      </header>
+      <img src="pictures/requiem/duopoly.jpg" 
+           class="middle"
+           alt="">
+      <small class="byline">
+        <a href="http://bgr.com/2013/08/20/android-ios-market-share-projection/">http://bgr.com</a>
+      </small>
+    </section>
+  </div></div>
+
+  <div id="simple" class="slide cover h"><div>
+    <section>
+      <img src="pictures/requiem/keep-it-simple.jpg" 
+           class="middle"
+           alt="">
+    </section>
+  </div></div>
+  
+  <div id="cheap" class="slide oneline"><div>
+    <section>
+      <h2>Low-end market</h2>
+    </section>
+  </div></div>   
+  
+  <div id="floss" class="slide oneline"><div>
+    <section>
+      <h2>Free and Open Source software</h2>
+    </section>
+  </div></div>   
+  
+  <div id="smartphone" class="slide oneline"><div>
+    <section>
+      <h2>The web is the platform.</h2>
+    </section>
+  </div></div>   
+  
+  <div id="manifesto" class="slide cover h"><div>
+    <section>
+      <img src="pictures/requiem/manifesto.png" 
+           class="right" 
+           height="350" 
+           alt="Firefox OS phones">
+    </section>
+  </div></div>
+  
+  
+  <div id="native_apps" class="slide cover h"><div>
+    <section>
+      <img src="pictures/requiem/native_apps.jpg" 
+           class="middle"
+           alt="">
+    </section>
+  </div></div>
+  
+  <div id="apps" class="slide oneline"><div>
+    <section>
+      <h2>Packaged or hosted</h2>
+    </section>
+  </div></div> 
+
+  <div id="manifest_webapp" class="slide"><div>
+    <section>
+      <header>
+        <h2>manifest.webapp (version soft)</h2>
+      </header>
+      <pre>
+        <code>{</code>
+        <code>  "name": "My App",</code>
+        <code>  "description": "My elevator pitch goes here",</code>
+        <code>  "launch_path": "/",</code>
+        <code>  "icons": { "128": "/img/icon-128.png" },</code>
+        <code>  "developer": {</code>
+        <code>    "name": "Your name or organization",</code>
+        <code>    "url": "http://your-homepage-here.org"</code>
+        <code>  }</code>
+        <code>}</code>
+      </pre>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/Manifest">App manifest</a></p>
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+    <footer class="notes">
+      Gotcha: bien configurer le mime type et les expirations
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="gecko" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Gecko: rendering engine</h2>
+      </header>
+      <img src="pictures/requiem/Phelsuma_gecko.jpg" 
+           class="middle"
+           alt="">
+      <small class="credits">
+        <a href="commons.wikimedia.org">commons.wikimedia.org
+        </a>
+        </small>  
+    </section>
+  </div></div>
+
+  <div id="gecko-dataflow" class="slide"><div>
+    <section>
+    <header>Basic data flow
+      </header>
+      <img src="pictures/cours-ssr/gecko_data_flow.png" 
+           class="middle shadow"
+           alt="">
+      
+           <small class="byline">
+             <a href="https://developer.mozilla.org/en-US/docs/Introduction_to_Layout_in_Mozilla">MDN</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="simple-architecture" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/fxos_simple_architecture.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://developer.mozilla.org">MDN</a>
+           </small>
+    </section>
+  </div></div>
+  
+  <div id="gaia-homescreen" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/screenshot_homescreen.png" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+
+  <div id="gaia-dialer" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/screenshot_dialer.png" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+
+  <div id="gaia-browser" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/screenshot_browser.png" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+
+  <div id="browser_bro" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/browser_bro.jpg" 
+           class="middle shadow"
+           alt="">
+      <small class="credits">
+        <a href="http://mozillamemes.tumblr.com/image/27554392258">
+        mozillamemes.tumblr.com</a>
+      </small>
+    </section>
+  </div></div>    
+
+  <div id="simple-architecture2" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/fxos_simple_architecture.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://developer.mozilla.org">MDN</a>
+           </small>
+    </section>
+  </div></div>
+  
+
+  <div id="apis_screenshot" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/APIs.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <!--<div id="process_apis" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/process_apis.jpg" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+-->
+  <div id="at_stakes" class="slide oneline"><div>
+    <section>
+      <h2>What kind of security?</h2>
+    </section>
+  </div></div>   
+
+  <div id="sec_by_design" class="slide oneline"><div>
+    <section>
+      <h2>Security by design</h2>
+    </section>
+  </div></div>   
+
+  <div id="sec_by_obscurity" class="slide oneline"><div>
+    <section>
+      <h2><s>Security by obscurity</s></h2>
+    </section>
+  </div></div>   
+  
+  <div id="open_system" class="slide oneline"><div>
+    <section>
+      <h2>Open for users</h2>
+    </section>
+  </div></div>   
+  
+  <div id="open_system2" class="slide oneline"><div>
+    <section>
+      <h2>...and developers</h2>
+    </section>
+  </div></div>   
+
+  <div id="adb" class="slide oneline"><div>
+    <section>
+      <h2>Debugger and root access</h2>
+    </section>
+  </div></div>   
+
+
+
+
+  <div id="user_centric" class="slide oneline"><div>
+    <section>
+      <h2>User-centric</h2>
+    </section>
+  </div></div>   
+
+  <div id="partners" class="slide oneline"><div>
+    <section>
+      <h2>Dealing with partners</h2>
+    </section>
+  </div></div>   
+
+  <div id="who" class="slide oneline"><div>
+    <section>
+      <h2>With who?</h2>
+    </section>
+  </div></div>   
+
+  <div id="working_with" class="slide oneline"><div>
+    <section>
+      <h2>Dev, UX, QA</h2>
+    </section>
+  </div></div>   
+
+  <div id="working_with2" class="slide oneline"><div>
+    <section>
+      <h2>Product, OEMs, carriers</h2>
+    </section>
+  </div></div>   
+ 
+  <div id="how" class="slide oneline"><div>
+    <section>
+      <h2>How?</h2>
+    </section>
+  </div></div>   
+
+ <div id="feature_design" class="slide oneline"><div>
+    <section>
+      <h2>Feature design & implementation</h2>
+    </section>
+  </div></div>   
+  
+  <div id="security_architecture" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/security_architecture.jpeg" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://stronghacker.wordpress.com/2012/05/18/armageddon-it/">https://stronghacker.wordpress.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <!--<div id="security_architecture_xkcd" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/security_xkcd.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="http://xkcd.com/538/">xkcd.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+-->  
+  <div id="threat_modeling" class="slide oneline"><div>
+    <section>
+      <h2>Threat modeling</h2>
+    </section>
+  </div></div>   
+
+  <div id="cyber_risks" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/cyber_risks.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="http://i.imgur.com/STBmKQh.png">http://www.carmelowalsh.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="code_review_gif" class="slide cover w"><div>
+    <section>
+    <header>
+      <h2 align="right">Doing a code review when...</h2>
+      </header>
+      <img src="pictures/requiem/code_review.gif" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://securityreactions.tumblr.com/post/139916365280/doing-a-code-review-when">https://securityreactions.tumblr.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="ux_design" class="slide oneline"><div>
+    <section>
+      <h2>UX/UI design</h2>
+    </section>
+  </div></div>   
+
+ <!-- <div id="ux_ui" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/uxnotui.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="http://uxmovement.com/wp-content/uploads/2015/02/uxnotui-icons.png">http://uxmovement.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+-->
+  <div id="bad_design" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/bad_ux.jpg" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="http://halls-of-valhalla.org/images/articles/ux-9-2014/ux-fry-meme.jpg">http://halls-of-valhalla.org</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="bad_ui" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/bad_ui.jpg" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://d3ii8mlq8d5cne.cloudfront.net/2014/07/EA/ms-word.jpg">wiliam.com.au</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="ux_joke" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/ux_joke.jpg" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://inkslcc.files.wordpress.com/2014/09/buiv-gvccaaf6lg.jpg">inkslcc.wordpress.com</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="ux_security_is_hard" class="slide oneline"><div>
+    <section>
+      <h2>But security UX is hard.</h2>
+    </section>
+  </div></div>   
+ 
+  <div id="ssl_indicators" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/ssl_indicators_firefox.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://blog.mozilla.org/security/2015/11/03/updated-firefox-security-indicators-2/">https://blog.mozilla.org/security</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="bug_tethering" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/bug_tethering.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="tethering_password" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/fruitshed.png" 
+           class="middle shadow"
+           alt="">
+           <small class="byline">
+             <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=797661#c17">https://bugzilla.mozilla.org/show_bug.cgi?id=797661#c17</a>
+           </small> 
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+
+  <div id="dilemma" class="slide oneline"><div>
+    <section>
+      <h2>User control vs automatic choices</h2>
+    </section>
+  </div></div>   
+
+  <div id="awareness" class="slide oneline"><div>
+    <section>
+      <h2>Raising awareness about security & privacy</h2>
+    </section>
+  </div></div>   
+
+  <div id="app_permissions" class="slide oneline"><div>
+    <section>
+      <h2>Permission model v1</h2>
+    </section>
+  </div></div>   
+  
+  <div id="recorder_permission" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/recorder_permission.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="app_permissions_screenshot" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/app_permissions.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="permission_choice" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/permission_choice.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+
+  <div id="permission_table" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/permission_table.png" 
+           class="middle shadow"
+           alt="">
+      <h2>dom/apps/PermissionsTable.jsm</h2>
+    <footer class="notes">
+   </footer>
+    </section>
+  </div></div>    
+  
+  <div id="prompt" class="slide oneline"><div>
+    <section>
+      <h2>Prompt</h2>
+    </section>
+  </div></div>    
+
+  <div id="catchup" class="slide cover h"><div>
+    <section>
+      <header>
+      <h2>Playing catch-up</h2>
+      </header>
+      <img src="pictures/requiem/catch_up.jpg" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+  
+  <div id="sec_story" class="slide oneline"><div>
+    <section>
+      <h2>Defense in depth</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="sec_feats" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>Process isolation, sandboxing</h2>
+      </header>
+      <img src="pictures/requiem/sandbox_yeah.jpg" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+  
+  <div id="missing" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>Message encryption, VPN support, full disk encryption</h2>
+      </header>
+      <img src="pictures/requiem/donna_bah.gif" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+  
+  <div id="sec_apps" class="slide oneline"><div>
+    <section>
+      <h2>Catching up vs. innovating</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="compromise" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>It's all about compromise.</h2>
+      </header>
+      <img src="pictures/requiem/compromise.jpg" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+
+  <div id="community" class="slide oneline"><div>
+    <section>
+      <h2>Community contributions</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="updates_bounty" class="slide oneline"><div>
+    <section>
+      <h2>Updates & bug bounty program</h2>
+    </section>
+  </div></div>    
+  
+  <div id="updates" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/requiem/updates.gif" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+
+  <div id="modif" class="slide oneline"><div>
+    <section>
+      <h2>OEMs & carriers modify the code.</h2>
+      </section>
+  </div></div>    
+  
+  <div id="modif2" class="slide oneline"><div>
+    <section>
+      <h2>Optimizations</h2>
+      </section>
+  </div></div>    
+  
+  <div id="modif3" class="slide oneline"><div>
+    <section>
+      <h2>Proprietary APIs</h2>
+      </section>
+  </div></div>    
+  
+  <div id="proprietary" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>No update are pushed to the phones.</h2>
+      </header>
+      <img src="pictures/requiem/no_update.jpg" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+  
+  <div id="bug_bounty" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>No security bug bounty program</h2>
+      </header>
+      <img src="pictures/requiem/no_bug_bounty.jpg" 
+           class="middle shadow"
+           alt="">
+    </section>
+  </div></div>    
+  
+
+  <div id="wip" class="slide oneline"><div>
+    <section>
+      <h2>WIP</h2>
+    </section>
+  </div></div>    
+  
+  <div id="nsec" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>New security model for apps</h2>
+      </header>
+      <img src="pictures/requiem/nsec.jpg" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="more_webby" class="slide oneline"><div>
+    <section>
+      <h2>More "webby"</h2>
+    </section>
+  </div></div>    
+  
+  <div id="restricted_APIs" class="slide oneline"><div>
+    <section>
+      <h2>Too many restricted APIs</h2>
+    </section>
+  </div></div>    
+  
+  <div id="drwow" class="slide cover h"><div>
+    <section>
+    <header>
+      <h2>Exposing APIs to the web</h2>
+      </header>
+      <img src="pictures/requiem/drwow.gif" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="standardisation" class="slide oneline"><div>
+    <section>
+      <h2>W3C standardization</h2>
+    </section>
+  </div></div>    
+
+  <div id="use_cases" class="slide oneline"><div>
+    <section>
+    <h2>Agreeing on use cases</h2>
+    </section>
+  </div></div>    
+  
+  <div id="ux_sec" class="slide oneline"><div>
+    <section>
+    <h2>UX/UI parts are hard to standardized.</h2>
+    </section>
+  </div></div>    
+
+  <div id="change_app_model" class="slide oneline"><div>
+    <section>
+      <h2>Hosted apps</h2>
+    </section>
+  </div></div>    
+
+  <div id="offline" class="slide oneline"><div>
+    <section>
+      <h2>Offline</h2>
+    </section>
+  </div></div>    
+
+  <div id="centralized_trust" class="slide oneline"><div>
+    <section>
+      <h2>Decentralized trust</h2>
+    </section>
+  </div></div>    
+
+  <div id="standard_tech" class="slide oneline"><div>
+    <section>
+      <h2>Use standards</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="standard_tech_examples" class="slide oneline"><div>
+    <section>
+      <h2>Streamable packages, Sub Resource Integrity, Service Workers</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="and_now" class="slide cover h"><div>
+    <section>
+      <header><h2 align="right">And now?</h2></header>
+      <img src="pictures/requiem/and_now.gif" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="transition" class="slide oneline"><div>
+    <section>
+      <h2>Transition plan</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="iot" class="slide oneline"><div>
+    <section>
+      <h2>Internet of Things</h2>
+    </section>
+  </div></div>    
+ 
+  <div id="connected_devices" class="slide cover h"><div>
+    <section>
+      <img src="pictures/requiem/rainbows.jpg" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="contact" class="slide"><div>
+    <section>
+    <header>
+      <h2>Contact</h2>
+      </header>
+    <ul>
+      <li>Stéphanie Ouillon</li>
+      <li>Github: <a href="https://github.com/arroway">arroway</a></li>
+      <li>arroway@mozilla.com</li>
+      <li>Twitter: <a href="https://twitter.com/_arroway">@_arroway</a></li>
+    </ul>
+    </section>
+  </div></div>    
+
+  <div id="securityteam" class="slide"><div>
+    <section>
+      <header>
+      <h2><center>Mozilla</center></h2>
+      </header> 
+      <img src="pictures/cours-ssr/firefoxos.png" 
+           class="right" 
+           height="350" 
+           alt="Firefox OS phones">
+         </small>
+         <p>Equipe Sécurité de <strong>Firefox OS</strong></p>   
+      <p>Nouvel <strong>OS mobile</strong> construit autour du <strong>web</strong></p>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="menu" class="slide"><div>
+    <section>
+    <header>
+      </header>
+    <ul class="nobull">
+      <li><strong>1. Firefox OS</strong></li>
+        <ul>
+          <li>Introduction</li>
+          <li>Architecture</li>
+        </ul>
+      <li><strong>2. Sécurité</strong></li> 
+        <ul>
+          <li>Enjeux</li>
+          <li>Applications</li>
+        </ul> 
+      <li><strong>3. TPs</strong></li>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+
+  <div id="firefoxos" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>1. Firefox OS</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  
+  <div id="openweb" class="slide"><div>
+    <section>
+    <header>
+      <h2><center>Open Web</center></h2>
+      </header>
+    <p>Le web ouvert comme plateforme mobile</p>
+    <ul>
+      <li>Technologies Web : apps "natives" en <strong>HTML/JavaScript/CSS</strong></li>
+      <li>Moteur de rendu <strong>Gecko</strong> (le même que pour Firefox)</li>
+      <li><strong>APIs web</strong> (JS) pour accéder aux functionnalités "natives" (accès caméra, carte SD, géolocalisation...)</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="libre" class="slide"><div>
+    <section>
+    <header>
+      <h2><center>Installation</center></h2>
+      </header>
+      <ul class="nobull">
+        <li><strong>Le code</strong> :
+         <ul>
+           <li>Mozilla Central: <a href="https://mxr.mozilla.org/">https://mxr.mozilla.org/</a> (Mercurial)</li>
+           <li>Scripts sur GitHub: <a href="https://github.com/mozilla-b2g/B2G">https://github.com/mozilla-b2g/B2G</a></li>
+         </ul>
+        </li>
+        <li><strong>La doc</strong> :
+          <ul>
+            <li>MDN: <a href="https://developer.mozilla.org">https://developer.mozilla.org</a></li>
+         </ul>
+       </li> 
+       <li><strong>Hardware compatible </strong>: cf <a href="https://developer.mozilla.org/en-US/Firefox_OS/Firefox_OS_build_prerequisites">MDN</a></li>
+       </li>
+       <li><strong>Simulateurs </strong>: 
+         <ul class="nobull">
+           <li>Client dans le navigateur</li>
+           <li>Emulateur (ARM)</li>
+           <li>Add-on dans l'App Manager</li>
+         </ul>
+       </li>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="browser" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>Architecture</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+  
+  <div id="fxos-simple-architecture" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/fxos_simple_architecture.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="gaia-intro" class="slide"><div>
+    <section>
+    <header>
+      <h2>Gaia</h2>
+      </header>
+
+    <ul class="nobull">
+      <li><strong>Interface utilisateur</strong> (UI)</li>
+      <ul>
+        <li>Entièrement écrite en HTML/CSS/JS</li>
+      </ul>
+      <li><strong>Applications utilisateur</strong></li>
+      <li><strong>Applications système</strong></li>
+        <ul>
+          <li>Appels, SMS, E-mails</li>
+          <li>Caméra, radio, musique</li>
+          <li>Navigateur web</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="app-sec-1" class="slide"><div>
+    <section>
+    <header>
+      <h2>Applications Web</h2>
+      </header>
+    <ul class="nobull">
+      <li><strong>Application Firefox OS = Web App</strong></li> 
+      <ul>
+        <li>Application "hostée" ou "packagée"</li>
+      </ul>
+      <li><strong>Sécurité d'une appli web</strong></li>
+      <ul>
+        <li>Content Security Policy (CSP)</li>
+        <li>DOM-based XSS</li>
+        <li>Input/output data sanitization & escaping</li>
+        <li>etc.</li>
+        <li>(on y reviendra)</li>
+      </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="archi1" class="slide"><div>
+    <section>
+      <header>
+        <h2>Architecture</h2>
+        <h3>Un site web classique</h3>
+      </header>
+      
+      <img src="pictures/cours-ssr/schema-1@2x.png" 
+           alt="Site Web" 
+           class="middle" height="134" style="background:#000;border-radius:5px;padding:2em;">
+
+           <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="archi2" class="slide"><div>
+    <section>
+      <header>
+        <h2>Architecture</h2>
+        <h3>Un site web moderne</h3>
+      </header>
+      
+      <img src="pictures/cours-ssr/schema-2@2x.png" 
+           alt="Site Web" 
+           class="middle" height="134" style="background:#000;border-radius:5px;padding:2em;">
+
+           <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="archi3" class="slide"><div>
+    <section>
+      <header>
+        <h2>Architecture</h2>
+        <h3>Une application web</h3>
+      </header>
+      
+      <img src="pictures/cours-ssr/schema-3@2x.png" 
+           alt="Site Web" 
+           class="middle" height="163" style="background:#000;border-radius:5px;padding:2em;">
+
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="archi4" class="slide"><div>
+    <section>
+      <header>
+        <h2>Architecture</h2>
+        <h3>Une application web « packagée »</h3>
+      </header>
+      
+      <img src="pictures/cours-ssr/schema-4@2x.png" 
+           alt="Site Web" 
+           class="middle" height="275" style="background:#000;border-radius:5px;padding:2em;margin-top:1em;">
+
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="apis-permissions" class="slide"><div>
+    <section>
+      <header>
+        <h2>APIs et permissions</h2>
+      </header>
+      <ul>
+        <li>L'accès à une fonctionnalité matérielle passe toujours par une
+        API</li>
+        <li>L'appel à cette API peut être autorisée ou non, au cas par cas</li>
+        <ul class="nobull">
+          <li>accord de l'utilisateur</li>
+          <li>accord implicite</li>
+          <li>application installée ou non</li>
+        </ul>
+      </ul>
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+      <footer class="notes">
+        Parler de la pollution du Web.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="apis-desc" class="slide"><div>
+    <section>
+    <header>
+      <h2>Permissions</h2>
+      </header>
+
+    <p>L'application doit être</p>  
+    <ul class="nobull">
+      <li><strong>certifiée</strong></li>
+      <li>ou <strong>privilégiée</strong></li>
+      <li>ou <strong>hébergée</strong></li>
+      <li>ou simplement <strong>accessible sur le web</strong></li>
+    </ul>
+    <p>pour utiliser une API.</p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="apis" class="slide cover w"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/APIs.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="zomgopenapps" class="slide"><div>
+    <section>
+      <header>
+        <h2>Passer d'un site web à une application Firefox OS</h2>
+        </header>
+        <p>Ajouter un <strong>manifeste</strong>.</p>
+        <ul>
+          <li>Fichier JSON</li>
+          <li>Contient les infos nécessaires au navigateur pour intéragir avec l'app</li>
+        </ul> 
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="manifest" class="slide"><div>
+    <section>
+      <header>
+        <h2>manifest.webapp (version soft)</h2>
+      </header>
+      <pre>
+        <code>{</code>
+        <code>  "name": "My App",</code>
+        <code>  "description": "My elevator pitch goes here",</code>
+        <code>  "launch_path": "/",</code>
+        <code>  "icons": { "128": "/img/icon-128.png" },</code>
+        <code>  "developer": {</code>
+        <code>    "name": "Your name or organization",</code>
+        <code>    "url": "http://your-homepage-here.org"</code>
+        <code>  }</code>
+        <code>}</code>
+      </pre>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/Manifest">App manifest</a></p>
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+    <footer class="notes">
+      Gotcha: bien configurer le mime type et les expirations
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="threekinds" class="slide"><div>
+    <section>
+      <header>
+        <h2>Types d'application&hellip;</h2>
+      </header>
+      <ul class='longlist'>
+        <li><mark>Contenu Web</mark> - sans privilèges particuliers, mais permet
+        tout de même l'accès à certaines APIs (ex: géolocalisation)</li>
+        <li><mark>Applications hébergées</mark> - stockées et servies par un serveur web.
+        Facile à mettre à jour, mais a un accès limité aux APIs.</li>
+        <li><mark>Applications packagées</mark> - packagées dans des fichiers
+        ZIP, elles peuvent être installées depuis n'importe quel site.
+        <li><mark>Applications privilégiées</mark> - revues par la Marketplace,
+        packagées, et signées par une clé identifiant la Marketplace.</li>
+        <li><mark>Applications certifiées</mark> - ces applications font partie
+        du système et ne peuvent pas être installées autrement.</li>
+      </ul>
+      <p class="demourl"><a href="https://developer.mozilla.org/en-US/docs/Apps/App_permissions">App permissions</a></p>
+      <small class="credits"><a href="http://julienw.github.io/firefoxos-presentation/html5/firefox-os-presentation-20131112.fr.html">Présentation par Julien Wajsberg et Jérémie Patonnier</a></small>     
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+
+
+  <div id="fxos-simple-architecture-bis" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/fxos_simple_architecture.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="gecko-intro" class="slide"><div>
+    <section>
+    <header>
+      <h2>Gecko</h2>
+      </header>
+
+    <ul class="nobull">
+      <li><strong>Moteur de rendu</strong> (<i>layout engine</i>)</li>
+      <ul>
+        <li>Firefox</li>
+        <li>Thunderbird</li>
+        <li>Firefox OS</li>
+      </ul>
+    </ul>
+    <ul>  
+      <li>Prend du contenu (HTML, XML)</li>
+      <li>Le formatte (CSS)</li> 
+      <li>L'affiche à l'écran</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="gecko-data-flow" class="slide"><div>
+    <section>
+    <header>Basic data flow
+      </header>
+      <img src="pictures/cours-ssr/gecko_data_flow.png" 
+           class="middle shadow"
+           alt="">
+      
+           <small class="byline">
+             <a href="https://developer.mozilla.org/en-US/docs/Introduction_to_Layout_in_Mozilla">more doc</a>
+           </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="js" class="slide"><div>
+    <section>
+    <header>Moteur JavaScript (SpiderMonkey)
+    </header>
+    <p><center>Script Processing Model</center></p>
+      <img src="pictures/cours-ssr/JS parser.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+
+  <!--<div id="js-ex" class="slide"><div>
+    <section> 
+      <header>
+      <h2>Exemple</h2>
+    </header>
+    <p>
+      <a href="js_execution_example.html">démo</a>
+    </p>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   --> 
+
+
+  <div id="fxos-simple-architecture-ter" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/fxos_simple_architecture.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="gonk-intro" class="slide"><div>
+    <section>
+    <header>
+      <h2>Gonk</h2>
+      </header>
+
+    <ul class="nobull">
+      <li><strong>Couche bas-niveau</strong></li>
+      <ul>
+        <li>Noyau Linux simplifié</li>
+        <li>HAL (Hardware Abstraction Layer)</li>
+        <li>Librairies Open Source (libusb, bluez)</li>
+        <li>Libraires Android (GPS, caméra)</li>
+        <li>Librairies OEM (firmware modem)</li>
+      </ul>
+      <li><strong>Gecko a été porté sur Gonk</strong> : accès total</li>
+        <ul>
+          <li>Interfaces exposées : pile téléphone, display frame buffer...</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+  
+  <div id="fxos-architecture" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/FirefoxOS_architecture.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="firefoxos-sec" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>2. Securité</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="sec-menu" class="slide"><div>
+    <section>
+    <header>
+    <h2>Sécurité de Firefox OS</h2>
+      </header>
+    <ul class="nobull">
+      <li><strong>Hardware</strong></li>
+        <ul>
+          <li>Remote debugging, hardware hardening</li>
+        </ul>
+      <li><strong>Système</strong></li> 
+        <ul>
+          <li>Infrastructure, sandboxing, mises à jour</li>
+        </ul> 
+      <li><strong>Applications</strong></li>  
+        <ul>
+          <li>App manifest, permissions, Marketplace</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  
+  <div id="open-sec" class="slide"><div>
+    <section>
+    <header>
+      <h2>Enjeux</h2>
+    </header>
+    <ul>
+      <li><strong>Security by design</strong></li>
+        <ul class="nobull">
+          <li><strong>Open Source</strong> &lt;&gt; security by obscurity</li>
+        </ul>
+      <li>Protéger le système sans le fermer</li>
+        <ul class="nobull">
+          <li>Un système <strong>sécurisé par défaut</strong> pour les utilisateurs</li>
+          <li>Un environnement favorable pour les <strong>développeurs d'apps</strong></li>
+        </ul>
+      <li><strong>Partenaires</strong></li>
+        <ul class="nobull">
+          <li>Open Source -&gt; code modifié</li>
+          <li>Prévention par des choix d'architecture</li>
+        </ul>
+      <li><strong>Code OEM, drivers hardware</strong></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <!--<div id="physique?" class="slide"><div>
+    <section>
+    <header>
+      <h2>Vulnérabilitiés physiques</h2>
+      <h2>Attaques réseau</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="physique" class="slide"><div>
+    <section>
+    <header>
+      <h2>Vulnérabilités physiques</h2>
+    </header>
+    <ul>
+      <li><strong>Vol</strong></li>
+        <ul class="nobull">
+          <li>Accès à la mémoire interne, à la carte SD</li>
+          <li>Accès au téléphone si pas vérouillé (pin code, lockscreen)</li>
+          <li>Accès aux services enregistrés</li>
+        </ul>
+      <li><strong>Compromission invisible après "emprunt"</strong></li>
+        <ul class="nobull">
+          <li>Installation d'apps malveillantes (hooks de Web Activities)</li>
+          <li>Détournement du trafic (proxy: pas d'UX)</li>
+        </ul>
+      <li><strong>Visibilité de données privées en public</strong></li>
+        <ul class="nobull">
+          <li>Mots de passe (lockscreen, pin code, hotspot) visibles</li>
+          <li>Visibilité des caractères tapés sur le clavier</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="réseau" class="slide"><div>
+    <section>
+    <header>
+      <h2>Attaques réseaux</h2>
+    </header>
+    <ul class="nobull">
+      <li><strong>Téléphonie et SMS</strong></li>
+      <ul>
+        <li>GSM (cf <a href="http://www.youtube.com/watch?v=ZrbatnnRxFc">Wideband GSM Sniffing</a> au 27c3)</li>
+        <li>Overflows, features de dev cachées...</li></ul>
+      <li><strong>Hotspot WiFi</strong></li>
+        <ul>
+          <li>Bruteforcing</li>
+        </ul>
+        <li><strong>Bluetooth</strong></li>
+      <ul>
+        <li>Parce que le bluetooth est secure</li>
+        </ul>
+        <li><strong>NFC</strong></li>
+        <ul>
+          <li>Implémentation critique (paiement)</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+
+  <div id="debugging" class="slide"><div>
+    <section>
+    <header>
+      <h2>Le Remote debugging</h2>
+      <h3>Une fonctionnalité critique</h3>
+      </header>
+    <ul class="nobull">
+      <li><strong>Pour les développeurs/ses</strong></li>
+      <ul>
+        <li>Accès root</li>
+        <li>Débugguer des applis certifiées</li>
+        <li>Accèder à des préférences ou aux settings des applis</li>
+        <li>ADB over WiFi</li>
+      </ul>  
+      <li><strong>Pour la sécurité</strong></li>
+        <ul>
+          <li>Protéger le système sans le fermer</li>
+          <li>Téléphone rooté ou non</li>
+        </ul>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="debugging2" class="slide"><div>
+    <section>
+    <header>
+      <h2>Le Remote debugging</h2>
+      <h3>Comment protéger ?</h3>
+      </header>
+    <ul>
+      <li><strong>Désactiver</strong> le serveur de debug lorsque l'écran est vérouillé</li>
+      <li><strong>Wipe data</strong> à l'activation du remote debugging</li>
+      <li>Vérouiller l'accès au remote debugging par un mot de passe / code PIN</li>
+      <li>ADB <strong>authentifié</strong></li>
+    </ul>  
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="system-sec" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>Sécurité Système</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div> -->  
+
+
+  <div id="security-framework" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/securityframework.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="child-parent-gecko" class="slide"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/child-parent-gecko.png" 
+           class="middle"
+           height="600px;"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="harware-access" class="slide"><div>
+    <section>
+    <header>
+      <h2>Accès au hardware</h2>
+      </header>
+    <ul class="nobull">
+      <li>Uniquement par les APIs Web</li>
+        <ul>
+          <li>Implémentées dans Gecko</li>
+          <li>Pas d'APIS "natives" ni "back doors"</li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <!--<div id="content-sandbox" class="slide"><div>
+    <section>
+    <header>
+      <h2>Content process sandboxing</h2>
+      <h3>Risques</h3>
+      </header>
+    <ul class="nobull">
+      <li>Use case : une faille a été trouvée dans Gecko</li>
+      <li>Risques : </li>
+      <ul>
+          <li>Escalation de privilège (content -&gt; parent process via IPDL)</li> 
+          <li>Exploitation de vulnérabilités noyau</li>
+          <li>Exploitation d'un bug hardware</li>
+        </ul> 
+      <li>Probabilité basse</li>  
+      <li>Criticité haute</li>  
+   </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="content-sandbox2" class="slide"><div>
+    <section>
+    <header>
+    <h2>Content process sandboxing</h2>
+    <h3>Seccomp</h3>
+      </header>
+    <ul class="nobull">
+      <li><strong>Seccomp: Secure Computing mode</strong></li>
+      <ul>
+        <li>Linux kernel &gt; 2.6.12</li>
+        <li>Limite les appels système d'un process à <code>read</code>, <code>write</code>, <code>sigreturn</code>, <code>exit</code></li>
+        <li>Utilise <code>prctl()</code></li>
+        <li>Peut-être démarré après l'init d'un process</li>
+        </ul>  
+   </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="content-sandbox3" class="slide"><div>
+    <section>
+    <header>
+    <h2>Content process sandboxing</h2>
+    <h3>Seccomp-BPF</h3>
+      </header>
+    <ul class="nobull">
+      <li><strong>Seccomp mode filter (or mode 2)</strong></li>
+      <ul>
+        <li>Linux kernel &gt; 3.5</li>
+        <li>Implémente BPF pour filter les appels système</li>
+        <li>Utilise une liste blanche d'appels système (plutôt que des fonctions hardcodées)</li>
+        <li>Plus flexible</li>
+        </ul>  
+   </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="content-sandbox4" class="slide"><div>
+    <section>
+    <header>
+    <h2>Content process sandboxing</h2>
+    <h3>seccomp_filter.h</h3>
+      </header>
+    <pre>
+    <code>#if defined(__arm__)</code>
+    <code>#define SECCOMP_WHITELIST_ARCH_HIGH \</code>
+    <code>  ALLOW_SYSCALL(msgget), \</code>
+    <code>  ALLOW_SYSCALL(recv), \</code>
+    <code>  ALLOW_SYSCALL(mmap2),</code>
+    <code>#endif</code>
+    </pre>  
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="system-update" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mises à jour Système</h2>
+    <h3>Risques</h3>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="system-update1" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mises à jour Système</h2>
+    <h3>Risques</h3>
+    </header>
+    <ul>
+      <li>Paquets de mise à jour compromis</li>
+      <li>Processus de vérification de mise à jour compromis</li>  
+      <li>Etat du système corrompu ou inconnu pendant la mise à jour</li>  
+      <li>Vulnérabilité dans le mécanisme de mise à jour</li>  
+      <li>Paquets vulnérables non mis à jour</li>  
+   </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="system-update2" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mises à jour Système</h2>
+    </header>
+    <ul>
+      <li>Patchs et mises à jour buildés, testés, signés et distribués par l'OEM</li>  
+      <li><strong>Firmware Over The Air Updates (FOTA)</strong></li>
+      <ul class="nobull">
+        <li>Si changements dans Gonk</li>
+        <li>Peut être utilisé pour tout: drivers, firmware, settings, security updates, Gaia, Gecko</li>
+      </ul>  
+      <li><strong>Mozilla System Update utility (MSU)</strong></li>
+        <ul class="nobull">
+          <li>Même processus, framework que pour Firefox Desktop: Mozilla ARchive (MAR)</li>
+        </ul>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+
+  <div id="system-update3" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mises à jour Système</h2>
+    <h3>Update Service</h3>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+
+  <div id="system-update4" class="slide"><div>
+    <section>
+    <header>
+    <h2>Mises à jour Système</h2>
+    <h3>Update Service</h3>
+    </header>
+    <ul>
+      <li>Vérification de :</li>
+        <ul class="nobull">
+          <li><strong>Origine</strong> de la MàJ et du manifest (protocol:domain:port)</li>
+          <li><strong>Intégrité</strong> du fichier (SHA-256)</li>
+          <li><strong>Signature</strong> du code (certificat vérifié)</li>
+        </ul>
+        <li>Connexion <strong>SSL</strong></li>
+      <li>Téléchargement complets des paquets dans un endroit sécurisé avant le début de la MàJ</li>
+      <li>MàJ dans un état "sécurisé" (pas de web apps en marche)</li>
+      <li>Stockage des clés dans un endroit sécurisé</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+</div></div>    -->
+  
+  <div id="applications" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>Applications</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="app-sandbox" class="slide"><div>
+    <section>
+    <header><h2>Application Sandbox</h2>
+      </header>
+      <img src="pictures/cours-ssr/sandbox.png" 
+           class="middle"
+           height="400px;"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="app-sandbox2" class="slide"><div>
+    <section>
+    <header><h2>Application Sandbox</h2>
+    </header>
+    <ul>
+      <li>Données stockées <strong>par application</strong>: cookie, données, locaStorage, IndexedDB, permissions (y compris pour des iframes de même origine)</li>
+      <li>Une application <strong>ne peut pas ouvrir</strong> une autre app (iframe, url) </li>
+      <li><strong>Permissions sanboxées</strong> (ex: autorisation d'utiliser la géolocalisation)</li>
+      <li><strong>Sandboxing de l'API Browser</strong>: deuxième sandbox pour du contenu ouvert qui serait ouvert</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+</div></div>    
+
+  <div id="app-sandbox3" class="slide"><div>
+    <section>
+    <header><h2>Application Sandbox</h2>
+    <h3>Inconvénients</h3>
+    </header>
+    <ul class="bull">
+      <li>Nécessité de se reloguer sur un même service, de gérer les autorisations plusieurs fois</li>
+      <li>Duplication des données stockées depuis un même site</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+</div></div>    
+
+
+  <div id="app-sandbox4" class="slide"><div>
+    <section>
+    <header><h2>Application Sandbox</h2>
+    <h3>Avantages</h3>
+    </header>
+    <ul>
+      <li><strong>Stabilité</strong> du modèle : pas d'intéraction entre apps via un tiers, pas de problème à l'installation, suppression des apps (données supprimées)</li>
+      <li><strong>Pas d'attaques inter-apps</strong></li>
+      <li><strong>Données privées</strong> : pas de traçage d'une app et de ses données depuis une autre</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+</div></div>    
+
+
+
+  <div id="infra" class="slide"><div>
+    <section>
+    <header>
+      <h2>Infrastructure</h2>
+      </header>
+    <ul class="nobull">
+      <li>Permission Manager</li>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      <li>Access Control List</li>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      <li>Credential Validation</li>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      <li>Permission Store</li>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="security-framework-app" class="slide cover h"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/securityframework.png" 
+           class="middle shadow"
+           alt="">
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+
+  <div id="types" class="slide"><div>
+    <section>
+    <header>
+    <h2>Indice de confiance</h2>
+    </header>
+    <ul class="nobull">
+      <li>Application : </li>
+      <ul>
+        <li><strong>Certified</strong>: ++ <i>(higly trusted)</i></li>
+        <li><strong>Privileged</strong>: + <i>(trusted)</i></li>
+        <li><strong>Web</strong>: - <i>(untrusted)</i></li>
+      </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="permissions" class="slide"><div>
+    <section>
+    <header>
+    <h2>Principe du minimum de permissions</h2>
+    </header>
+    <ul>
+      <li><i>Principe of least permissions</i></li>
+      <li>Commencer avec le <strong>minimum vital de permissions</strong></li>
+      <li>Le Manifest liste les permissions supplémentaires à donner par Gecko</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="review" class="slide"><div>
+    <section>
+    <header>
+    <h2>Revue des applications privilégiées par le Marketplace</h2>
+    </header>
+    <ul>
+      <li>Une app <strong>doit être revue</strong> par le Marketplace pour être de type "privilégié"</li>
+      <li>L'app est alors numériquement <strong>signée</strong> par le Marketplace</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="paquets" class="slide"><div>
+    <section>
+    <header>
+    <h2>Applications hostées ou packagées</h2>
+    </header>
+    <ul>
+      <li>Packagée</li>
+      <ul class="nobull">
+        <li>Fichier <strong>ZIP signé</strong></li>
+        <li>Les apps certifiées et privilégiées DOIVENT être packagées</li>
+        <li>Stockage des données, assets, source <strong>en local</strong></li>
+      </ul>
+      <li>Hostée</li>
+      <ul class="nobull">
+        <li>Seul le manifest est installé sur le téléphone</li>
+        <li>Contient l'URL vers la page de démarrage de l'app</li>
+        <li>L'app est traité comme du contenu web : <strong>stockée à distance</strong>, récupéré par HTTP</li>
+        <li></li>
+      </ul>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="manifest-sec1" class="slide"><div>
+    <section>
+    <header>
+    <h2>Configuration du manifest</h2>
+    <h3>Aspects securité</h3>
+    </header>
+    <ul class="nobull">
+      <li><strong>Permissions</strong></li>
+      <ul>
+        <li><strong>Description</strong> : le nom de la permission. Obligatoire.</li>
+        <li><strong>Droits d'accès</strong> : read, readwrite, readcreate, createonly. Obligatoire pour certaines APIs seulement.</li>
+        <li><strong>Table des permissions dans Gecko</strong> : <a href="https://mxr.mozilla.org/mozilla-central/source/dom/apps/src/PermissionsTable.jsm">PermissionTable.jsm</a></li>
+        <li><strong>Permissions implicites</strong> : obtenus automatiquement par l'app à l'installation</li>
+      </ul>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="manifest-sec2" class="slide"><div>
+    <section>
+    <header>
+    <h2>Configuration du manifest</h2>
+    <h3>Aspects securité</h3>
+    </header>
+    <ul class="nobull">
+      <li><strong>installs_allowed_from</strong></li>
+      <ul>
+        <li>Origine de l'app</li>
+        <li>Seules les origines spécifiées peuvent installer l'app</li>
+        <li>Permet aux fournisseurs de l'app de restreindre les apps à un Marketplace autorisé</li>
+      </ul>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="manifest-sec3" class="slide"><div>
+    <section>
+    <header>
+    <h2>Configuration du manifest</h2>
+    <h3>Aspects securité</h3>
+    </header>
+    <ul class="nobull">
+      <li><strong>Content Security Policy</strong></li>
+      <ul>
+        <li>Appliquée à toutes les pages chargées de l'app</li>
+        <li>Ne peut que renforcer la CSP appliquée par défaut</li>
+      </ul>  
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="csp" class="slide"><div>
+    <section>
+    <header>
+    <h2>Content Security Policy</h2>
+    </header>
+    <ul class="nobull">
+      <li><a href="https://developer.mozilla.org/en-US/Apps/CSP">cf MDN</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="xss" class="slide"><div>
+    <section>
+    <header>
+    <h2>DOM-based XSS</h2>
+    </header>
+    <ul class="nobull">
+      <li><a href="https://www.owasp.org/index.php/DOM_Based_XSS">Rappels</a></li>
+      <li><a href="https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet">Prévention</a> : <strong>échapper les données utilisateurs</strong>.</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="indexeddb" class="slide"><div>
+    <section>
+    <header>
+    <h2>IndexedDB</h2>
+    </header>
+    <ul class="nobull">
+      <li>Base clé/valeur</li>
+      <li>Pas de risque de SQLi</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <!--<div id="users-permissions" class="slide"><div>
+    <section>
+    <header>
+    <h2>Gestion des permissions par l'utilisateur</h2>
+    </header>
+    <ul>
+      <li>Demande d'autorisation au moment où l'app a besoin d'une permission</li>
+      <li><i>data usage intention</i></li>
+      <li>Onglet dans "Settings" : gestion des permissions par app</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="privacy" class="slide"><div>
+    <section>
+    <header>
+      <h2>Protection des données privées</h2>
+      </header>
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/The_Do_Not_Track_Field_Guide/Introduction">Do Not Track</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/Apps/Publishing/Privacy_Policies_for_Open_Web_Apps">Privacy Policy for Open Web Apps</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="enjeux" class="slide"><div>
+    <section>
+    <header>
+    <h2>Enjeux</h2>
+    </header>
+    <ul>
+      <li>Fournir l'accès de permissions certifiées (caméra) à des apps privilégiées</li>
+      <li>Revues de sécurité dans le Marketplace (cf <a href="http://defreez.bitbucket.org/ecs235a/project/defreez_ecs235a.pdf">quelques résultats</a>) </li>
+      <li>Devtools</li>
+      <li>Renforcement de la sécurité de FxOS : notamment au niveau du chiffrement</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  
+  <div id="webcrypto" class="slide"><div>
+    <section>
+    <header>
+    <h2>Framework de Cryptographie</h2>
+    </header>
+    <ul>
+      <li>Crypto Worker (encryption primitives)</li>
+      <li>WebCrypto API (non-user related encryption)</li>
+      <li>IndexedDB encryption</li>
+      <li>Full disk encryption (data partition, optionnally SD card</li>
+      <li>A "trust core" in Gonk for key storage, keys derivation, signing and encrypting data to user and/or device</li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   --> 
+  
+  <div id="contribuer" class="slide"><div>
+    <section>
+    <header>
+      <h2>Contribuer</h2>
+    </header>
+    <ul>
+      <li>Les revues de sécurité et les meetings sont publiques: <a href="https://wiki.mozilla.org/Security/B2G">infos</a></li>
+      <li><a href="https://wiki.mozilla.org/Security/B2G/Contribute">Contribuer</a>: trouver corriger un bug de sécu, commiter pour un outil de sécu</li> 
+      <li><a href="Bugs mentorés: http://www.joshmatthews.net/bugsahoy/?b2g=1">Bugs mentorés</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=923920">quelques bugs de sécu</a></li>
+      <li>Comment contribuer: <a href="https://developer.mozilla.org/en-US/docs/Introduction">Guidelines</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+  
+  <div id="xkcd" class="slide"><div>
+    <section>
+    <header>
+      </header>
+      <img src="pictures/cours-ssr/xkcd_security.png" 
+           class="middle" height="300"
+           alt="">
+           <small class="credits">    
+        <a href="xkcd.com/538">
+          xkcd.com/538
+        </a>
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="threat-modeling" class="slide oneline"><div>
+    <section>
+    <header>
+      <h2>Threat Modeling</h2>
+    </header>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>   
+
+  <div id="tp" class="slide"><div>
+    <section>
+    <header>
+      <h2>TP en 2 parties</h2>
+      </header>
+    <ul>
+      <li>Partie A: <a href="tp-a-ssr-2015.html">énoncé</a></li>
+      <li>Partie B: <a href="tp-b-ssr-2015.html">énoncé</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+
+  <div id="contact" class="slide"><div>
+    <section>
+    <header>
+      <h2>Contact</h2>
+      </header>
+    <ul>
+      <li>Stéphanie Ouillon</li>
+      <li>Slides: <a href="http://arroway.github.io/mozilla-presentation-templates/html5/cours-ssr-2015.html">http://arroway.github.io/mozilla-presentation-templates/html5/cours-ssr-2015.html</a></li>
+      <li>Github: <a href="https://github.com/arroway">arroway</a></li>
+      <li>arroway@mozilla.com</li>
+      <li><a href="https://twitter.com/steph_ouillon">@steph_ouillon</a></li>
+    </ul>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>    
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>

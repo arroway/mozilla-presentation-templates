@@ -9,7 +9,7 @@
 @import url(reset.css);
 
 BODY {
-	font:25px/1.8 'OpenSansRegular', sans-serif;
+	font:30px/1.8 'OpenSansRegular', sans-serif;
 	counter-reset:paging;
 	}
 
@@ -49,6 +49,10 @@ body:after {
 	color:rgb(62,62,62);
 	}
 
+.slide h3 {
+  font:35px;
+  text-align: center;
+}
 /* 
 	No numbering in the progress bar:
   add "nonumbers" class to <html> 
