@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Pourquoi je fais du logiciel libre</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style_big.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>Pourquoi faire du logiciel libre</h1>
+    <p class="footer">
+      Stéphanie Ouillon 
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+    </p>
+  </aside>
+
+<!-- 
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID 
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2><center>Pourquoi faire du logiciel libre</center></h2>
+      </header>
+      <img src="pictures/ll_dc/meditate-fs.jpg" 
+           class="middle shadow" height="400"
+           alt="cover">
+      <small class="byline">
+        Stéphanie Ouillon, Django Carrots, Mozilla, 12-14 juin 2015
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <div id="mozilla" class="slide cover w"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/ll_dc/charac-more.png" 
+           class="middle" 
+           alt="Firefox OS phones">
+           <small class="credits">fsf.org</small>
+       </small>
+    </section>
+  </div></div>
+  
+  <div id="vraie-question" class="slide oneline"><div>
+    <section>
+      <header>
+      </header>
+      <blockquote><h2>Pourquoi je <s>fais</s> continue à faire du logiciel libre ?</h2></blockquote>
+    </section>
+  </div></div>  
+  
+  <div id="free-software-de" class="slide"><div>
+    <section>
+      <header>
+        <h2>Le logiciel libre</h2>
+      </header>
+      <p>... est un logiciel que les utilisateurs/rices peuvent librement :</p>
+      <ul>
+        <li>Utiliser</li>
+        <li>Etudier</li>
+        <li>Modifier</li>
+        <li>Redistribuer (avec ou sans modification)</li>
+      </ul>  
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+  <div id="linux-bsd" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/ll_dc/dc0a548ec00351489361bf6701b4d62a.jpg" 
+           class="middle" 
+           alt="Firefox OS phones">
+      </small>
+    </section>
+  </div></div>
+  <div id="free-software" class="slide"><div>
+    <section>
+      <header>
+        <h2>Logiciel privateur</h2>
+      </header>
+      <blockquote><p>Quand les utilisateurs ne contrôlent pas le programme, c'est le programme qui contrôle les utilisateurs. Le développeur contrôle le programme, et par ce biais, contrôle les utilisateurs. Ce programme non libre, ou « privateur », devient donc l'instrument d'un pouvoir injuste.</p>
+         <p class="byline">Free Software Foundation</p>
+        </blockquote>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+  <div id="privacy" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/ll_dc/privacy-free-software-sign.svg" 
+           class="middle" 
+           alt="Firefox OS phones">
+      </small>
+    </section>
+  </div></div>
+
+  <div id="communs" class="slide"><div>
+    <section>
+      <header>
+        <h2>Les Communs</h2>
+      </header>
+      <p>Gestion collective de biens matériels ou immatériels :</p>
+      <ul>
+        <li>Appropriation, usage et exploitation collectives</li>
+        <li>Gestion communautaire</li>
+      </ul>  
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+  
+  <div id="creativecommons" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/ll_dc/CreativeCommonsKiwi_splash.jpg" 
+           class="middle" 
+           alt="Firefox OS phones">
+           <small class="credits">creativecommons.org</small>
+       </small>
+    </section>
+  </div></div>
+ 
+  <div id="tux-starwars" class="slide cover h"><div>
+    <section>
+      <header>
+      </header>
+      <img src="pictures/ll_dc/linux-fuente-wars.jpg" 
+           class="middle" 
+           alt="Firefox OS phones">
+           <small class="credits">http://www.nicer.es</small>
+       </small>
+    </section>
+  </div></div>
+ 
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
