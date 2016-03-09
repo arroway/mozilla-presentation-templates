@@ -607,6 +607,7 @@ small.byline{
 	padding: 5px 10px;
 	border-bottom: none;
 	text-decoration: none;
+  font-weight:bold;
 	}
 .longlist {
 	font-size: 20px;
